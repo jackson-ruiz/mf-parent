@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const deps = require("./package.json").dependencies;
+const Dotenv = require("dotenv-webpack");
 
 const port = 3000;
 const childrenUrl = "http://localhost:3001";
@@ -39,6 +40,7 @@ const commonConfiguration = {
     historyApiFallback: true,
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
