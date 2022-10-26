@@ -2,36 +2,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const deps = require("./package.json").dependencies;
 const Dotenv = require("dotenv-webpack");
+const { merge } = require("webpack-merge");
+const commonConfiguration = require("../mf-parent/webpack.common");
 
 const port = 3000;
 const childrenUrl = "http://localhost:3001";
-const commonConfiguration = {
-  resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.m?js/,
-        type: "javascript/auto",
-        resolve: {
-          fullySpecified: false,
-        },
-      },
-      {
-        test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(ts|tsx|js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
-      },
-    ],
-  },
-
+const developmentConfiguration = {
   output: {
     publicPath: `http://localhost:${port}/`,
   },
@@ -48,7 +24,7 @@ const commonConfiguration = {
       name: "mf_parent",
       filename: "remoteEntry.js",
       remotes: {
-        MfChildren: `MfChildren@http://localhost:3001/remoteEntry.js`,
+        MfChildren: `MfChildren@${childrenUrl}/remoteEntry.js`,
       },
       exposes: {},
       shared: {
@@ -66,4 +42,4 @@ const commonConfiguration = {
   ],
 };
 
-module.exports = commonConfiguration;
+module.exports = merge(commonConfiguration, developmentConfiguration);
