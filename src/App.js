@@ -1,6 +1,21 @@
 import React from "react";
 import MfContainer from "./components/micro-frontends/MfContainer";
-MfContainer;
+
+// const routeList = [
+//   {
+//     path: "/",
+//     element: <Dashboard />,
+//   },
+//   {
+//     path: "/tramites",
+//     element: (
+//       <ErrorManagement>
+//         <ProceduresPage />
+//       </ErrorManagement>
+//     ),
+//   },
+// ];
+
 const App = () => {
   return (
     <>
