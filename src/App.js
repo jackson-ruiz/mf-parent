@@ -1,5 +1,6 @@
 import React from "react";
-import MfContainer from "./components/micro-frontends/MfContainer";
+// import MfContainer from "./components/micro-frontends/MfContainer";
+import MainTemplate from "./pages/MainTemplate";
 
 // const routeList = [
 //   {
@@ -19,13 +20,14 @@ import MfContainer from "./components/micro-frontends/MfContainer";
 const App = () => {
   return (
     <>
-      <h1>Hello World</h1>
+      <MainTemplate />
+      {/* <h1>Hello World</h1>
       <p>
         <b>Esta es una variable de entorno de prueba:</b>{" "}
         {process.env.SAMPLE_ENVIRONMENT_VARIABLE}
       </p>
       <hr />
-      <MfContainer />
+      <MfContainer /> */}
     </>
   );
 };
