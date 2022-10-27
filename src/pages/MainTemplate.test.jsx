@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import React from "react";
 import MainTemplate from "./MainTemplate";
 
 describe("Group of test for MainTemplate component", () => {
   test("should exist basic template structure", () => {
     const { getByTestId } = render(<MainTemplate />);
-    screen.debug();
+
     expect(getByTestId("component-main-container")).toBeInTheDocument();
     expect(getByTestId("component-main-container").className).toBe("flex");
 
@@ -23,21 +23,24 @@ describe("Group of test for MainTemplate component", () => {
     expect(getByTestId("content-children")).toBeInTheDocument();
   });
 
-  test.only("should exist rendered data of children components", () => {
-    const UserComponent = <h1 data-testid="user-info-data">User Info</h1>;
-    const LeftComponent = (
-      <p data-testid="left-component-data">Left Side Data</p>
-    );
-    const ContentComponent = <p data-testid="content-data">Content Data</p>;
+  test("should exist rendered data of children components", () => {
+    const UserComponent = () => {
+      return <h1 data-testid="user-info-data">User Info</h1>;
+    };
+    const LeftComponent = () => {
+      return <p data-testid="left-component-data">Left Side Data</p>;
+    };
+    const ContentComponent = () => {
+      return <p data-testid="content-data">Content Data</p>;
+    };
 
     const { getByTestId } = render(
       <MainTemplate
-        UserDataSection={UserComponent}
-        LeftSideContent={LeftComponent}
-        ContentSideData={ContentComponent}
+        UserDataSection={<UserComponent />}
+        LeftSideContent={<LeftComponent />}
+        ContentSideData={<ContentComponent />}
       />
     );
-    // screen.debug();
 
     expect(getByTestId("user-info-data").innerHTML).toBe("User Info");
     expect(getByTestId("left-component-data").innerHTML).toBe("Left Side Data");
