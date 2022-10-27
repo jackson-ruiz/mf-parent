@@ -3,14 +3,14 @@ import { UserIcon } from "@heroicons/react/24/solid";
 import Button from "../forms/Button";
 
 const buttonContent = (
-  <div class="flex items-center m-auto">
+  <div className="flex items-center m-auto">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="h-6 mr-2"
+      className="h-5 mr-2"
     >
       <path
         strokeLinecap="round"
