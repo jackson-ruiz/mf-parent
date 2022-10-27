@@ -31,7 +31,11 @@ const UserSesionInfo = () => {
     <>
       <h1 className="text-white text-center text-xl">Nombre Usuario.</h1>
       <UserIcon className="mt-2 w-20 text-white m-auto" />
-      <Button buttonContent={buttonContent} buttonAcction={handleClick} />
+      <Button
+        buttonContent={buttonContent}
+        buttonAcction={handleClick}
+        buttonClassName="w-full mt-2 mb-2 px-4 py-2 text-sm "
+      />
     </>
   );
 };
