@@ -1,6 +1,6 @@
 fileignoreconfig:
   - filename: package-lock.json
-    checksum: d99ab8f1fdf04780228d8d1625067b3dcf7902f05838cd6ae8e4e104ba3b42b1
-  - filename: src/components/MainMenu.jsx
-    checksum: 9c01c7fefa2fbd174ce330a0621a0757b30555dbe7355751583f86f87e29d715
+    checksum: a6f4e29333873501fec2291606c0a0326ad919ec9683cc57671ec6dd9d79c66d
+  - filename: src/components/TemplateContentManager.jsx
+    checksum: aef7ace4f86ce50bfd171ad1baafb28707ec0f334c90f282a9f2be7624a96ce9
 version: ""
